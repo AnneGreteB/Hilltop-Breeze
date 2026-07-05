@@ -1,0 +1,24 @@
+{
+  "heading": "Beautiful beaches, colourful art and great food",
+  "intro": "Your next Caribbean adventure is just around the corner.",
+  "items": [
+    {
+      "title": "Beaches",
+      "text": "Jan Thiel and Mambo Beach are minutes away — calm turquoise water, easy snorkelling and laid-back beach clubs.",
+      "image": "/images/explore-beaches.jpg",
+      "imageAlt": "Palm-lined beach with turquoise water in Curaçao"
+    },
+    {
+      "title": "Food & drink",
+      "text": "From beachside grills to Willemstad's waterfront restaurants, the island eats and drinks remarkably well.",
+      "image": "/images/explore-food.jpg",
+      "imageAlt": "Cold local beers and a hibiscus flower on a sunny terrace table"
+    },
+    {
+      "title": "Art & culture",
+      "text": "Wander the colourful streets of Willemstad — a UNESCO-listed capital full of murals and Dutch-Caribbean colour.",
+      "image": "/images/explore-art.jpg",
+      "imageAlt": "Colourful street lined with shops and greenery"
+    }
+  ]
+}

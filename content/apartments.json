@@ -1,0 +1,27 @@
+{
+  "heading": "Three ways to stay",
+  "intro": "Three apartments for rent in a calm, friendly neighbourhood with a shared pool and internet included — perfectly placed between Jan Thiel and Mambo Beach, only 30 minutes from the airport. Book your next Caribbean adventure now.",
+  "apartments": [
+    {
+      "name": "Apartment 1",
+      "description": "A bright, private apartment with access to the shared pool and an easy reach of the island's best beaches.",
+      "airbnbUrl": "https://www.airbnb.no/rooms/1363809583174509139",
+      "image": "/images/apartment-1.jpg",
+      "imageAlt": "Apartment 1 living room opening onto the terrace"
+    },
+    {
+      "name": "Apartment 2",
+      "description": "Comfortable and calm, with the shared pool just outside and the warmth of the hilltop all around.",
+      "airbnbUrl": "https://www.airbnb.no/rooms/1364073318350442475",
+      "image": "/images/apartment-2.jpg",
+      "imageAlt": "Apartment 2 balcony with seating and views over the hilltop"
+    },
+    {
+      "name": "Apartment 3",
+      "description": "A peaceful retreat with everything you need for a relaxing holiday, moments from the water.",
+      "airbnbUrl": "https://www.airbnb.no/rooms/1390231233709113623",
+      "image": "/images/apartment-3.jpg",
+      "imageAlt": "Apartment 3 dining area and open kitchen"
+    }
+  ]
+}

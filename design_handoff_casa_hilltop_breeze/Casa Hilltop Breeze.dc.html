@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#f6f1e8;font-family:'Mulish',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#16323a}
+  section[id]{scroll-margin-top:84px}
+  a{color:inherit}
+  @keyframes hbRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div ref="{{ setWrapRef }}" style="--primary:#17869b;--primary-h:#0f6577;--bg:#f6f1e8;--nav-bg:rgba(246,241,232,0.85);--tint:#e6f4f2;--accent:#7d634f;--hero:linear-gradient(150deg,#47faf0 0%,#17869b 100%);--footer:linear-gradient(160deg,#125562 0%,#0a3540 100%);background:var(--bg);overflow-x:hidden">
+
+  <!-- ===== PALETTE SWITCHER ===== -->
+  <div style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:5px;padding:6px;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(22,50,58,0.12);border-radius:999px;box-shadow:0 12px 34px -14px rgba(22,50,58,0.55);max-width:calc(100vw - 24px);flex-wrap:wrap;justify-content:center">
+    <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(22,50,58,0.5);padding:0 4px 0 10px">Palette</span>
+    <sc-for list="{{ palettes }}" as="p" hint-placeholder-count="5">
+      <button type="button" onClick="{{ p.onClick }}" style="{{ p.pillStyle }}">
+        <span style="{{ p.dotStyle }}"></span>{{ p.label }}
+      </button>
+    </sc-for>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,5vw,64px);background:var(--nav-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(22,50,58,0.10)">
+    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none">
+      <span style="width:10px;height:10px;border-radius:50%;background:var(--primary);display:inline-block;flex:none"></span>
+      <span style="font-family:'Marcellus',serif;font-size:clamp(15px,2vw,18px);letter-spacing:0.16em;text-transform:uppercase;color:#16323a;line-height:1">Casa&nbsp;Hilltop&nbsp;Breeze</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.4vw,30px)">
+      <a href="#apartments" style="font-size:14px;font-weight:600;letter-spacing:0.02em;text-decoration:none;color:#16323a;opacity:0.82">Apartments</a>
+      <a href="#explore" style="font-size:14px;font-weight:600;letter-spacing:0.02em;text-decoration:none;color:#16323a;opacity:0.82">Explore</a>
+      <a href="#location" style="font-size:14px;font-weight:600;letter-spacing:0.02em;text-decoration:none;color:#16323a;opacity:0.82">Location</a>
+      <a href="#contact" style="display:inline-flex;align-items:center;background:var(--primary);color:#fff;font-size:14px;font-weight:700;letter-spacing:0.02em;padding:10px 20px;border-radius:999px;text-decoration:none" style-hover="background:var(--primary-h)">Book&nbsp;now</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" style="position:relative;min-height:90vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--hero)">
+    <image-slot id="hero-photo" shape="rect" placeholder="Drop your best villa / pool photo here" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,30,34,0.30) 0%,rgba(11,30,34,0.05) 38%,rgba(11,30,34,0.45) 78%,rgba(11,30,34,0.72) 100%);pointer-events:none"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px) clamp(56px,8vw,96px);pointer-events:none">
+      <div style="max-width:760px;animation:hbRise 0.9s cubic-bezier(0.16,1,0.3,1) both">
+        <p style="margin:0 0 18px;font-size:13px;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,255,255,0.9)">Curaçao &middot; Caribbean</p>
+        <h1 style="margin:0;font-family:'Marcellus',serif;font-weight:400;color:#fff;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.04;text-shadow:0 2px 30px rgba(0,0,0,0.35)">Escape to a slower, softer side of the Caribbean</h1>
+        <p style="margin:22px 0 34px;font-size:clamp(17px,2vw,21px);font-weight:400;color:rgba(255,255,255,0.92);line-height:1.5;max-width:520px;text-shadow:0 1px 16px rgba(0,0,0,0.3)">Affordable luxury in a tropical hideaway — three private apartments, a shared pool and the quiet of the hilltop.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;pointer-events:auto">
+          <a href="#apartments" style="display:inline-flex;align-items:center;background:#fff;color:#16323a;font-weight:700;font-size:15px;letter-spacing:0.02em;padding:16px 32px;border-radius:999px;text-decoration:none" style-hover="background:var(--bg)">Book your stay</a>
+          <a href="#explore" style="display:inline-flex;align-items:center;background:transparent;color:#fff;font-weight:700;font-size:15px;letter-spacing:0.02em;padding:16px 32px;border-radius:999px;text-decoration:none;border:1px solid rgba(255,255,255,0.65)" style-hover="background:rgba(255,255,255,0.12)">Explore the island</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,64px)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center">
+      <div style="flex:1 1 360px">
+        <p style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--primary)">About us</p>
+        <h2 style="margin:0 0 22px;font-family:'Marcellus',serif;font-weight:400;color:#16323a;font-size:clamp(2rem,4vw,3.1rem);line-height:1.1">A quiet villa made for unwinding</h2>
+        <p style="margin:0;font-size:clamp(16px,1.5vw,18px);line-height:1.75;color:rgba(22,50,58,0.82)">Tucked away in a peaceful setting, the villa is home to three private apartments, a shared pool and the kind of quiet that makes it easy to unwind. We offer thoughtful, beautiful and comfortable stays in tropical surroundings — where guests enjoy privacy, warmth and quality, with easy access to everything needed for a relaxing holiday.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 24px;margin-top:38px">
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px;flex:none"></span><span style="font-size:15px;font-weight:600;line-height:1.4">Three private apartments</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px;flex:none"></span><span style="font-size:15px;font-weight:600;line-height:1.4">Shared swimming pool</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px;flex:none"></span><span style="font-size:15px;font-weight:600;line-height:1.4">Wi-Fi included</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:8px;flex:none"></span><span style="font-size:15px;font-weight:600;line-height:1.4">30 minutes from the airport</span></div>
+        </div>
+      </div>
+      <div style="flex:1 1 360px;min-width:280px">
+        <image-slot id="about-photo" shape="rounded" radius="16" placeholder="Drop a photo of the villa or pool" style="width:100%;height:clamp(340px,42vw,520px)"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APARTMENTS ===== -->
+  <section id="apartments" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,64px);background:var(--tint)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="max-width:680px;margin-bottom:clamp(40px,5vw,64px)">
+        <p style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--primary)">The apartments</p>
+        <h2 style="margin:0 0 20px;font-family:'Marcellus',serif;font-weight:400;color:#16323a;font-size:clamp(2rem,4vw,3.1rem);line-height:1.1">Three ways to stay</h2>
+        <p style="margin:0;font-size:clamp(16px,1.5vw,18px);line-height:1.75;color:rgba(22,50,58,0.82)">Three apartments for rent in a calm, friendly neighbourhood with a shared pool and internet included — perfectly placed between Jan Thiel and Mambo Beach, only 30 minutes from the airport. Book your next Caribbean adventure now.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(20px,2.5vw,32px)">
+
+        <div style="display:flex;flex-direction:column;background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(22,50,58,0.10);box-shadow:0 18px 40px -28px rgba(22,50,58,0.4)">
+          <image-slot id="apt-1" shape="rect" placeholder="Apartment 1 photo" style="width:100%;height:240px"></image-slot>
+          <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+            <h3 style="margin:0 0 10px;font-family:'Marcellus',serif;font-weight:400;font-size:24px;color:#16323a">Apartment 1</h3>
+            <p style="margin:0 0 22px;font-size:15px;line-height:1.65;color:rgba(22,50,58,0.78);flex:1">A bright, private apartment with access to the shared pool and an easy reach of the island's best beaches.</p>
+            <a href="https://www.airbnb.no/rooms/1363809583174509139" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--primary);color:#fff;font-weight:700;font-size:14px;letter-spacing:0.02em;padding:14px 22px;border-radius:999px;text-decoration:none" style-hover="background:var(--primary-h)">Book on Airbnb &nbsp;&rarr;</a>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(22,50,58,0.10);box-shadow:0 18px 40px -28px rgba(22,50,58,0.4)">
+          <image-slot id="apt-2" shape="rect" placeholder="Apartment 2 photo" style="width:100%;height:240px"></image-slot>
+          <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+            <h3 style="margin:0 0 10px;font-family:'Marcellus',serif;font-weight:400;font-size:24px;color:#16323a">Apartment 2</h3>
+            <p style="margin:0 0 22px;font-size:15px;line-height:1.65;color:rgba(22,50,58,0.78);flex:1">Comfortable and calm, with the shared pool just outside and the warmth of the hilltop all around.</p>
+            <a href="https://www.airbnb.no/rooms/1364073318350442475" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--primary);color:#fff;font-weight:700;font-size:14px;letter-spacing:0.02em;padding:14px 22px;border-radius:999px;text-decoration:none" style-hover="background:var(--primary-h)">Book on Airbnb &nbsp;&rarr;</a>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(22,50,58,0.10);box-shadow:0 18px 40px -28px rgba(22,50,58,0.4)">
+          <image-slot id="apt-3" shape="rect" placeholder="Apartment 3 photo" style="width:100%;height:240px"></image-slot>
+          <div style="padding:26px 26px 28px;display:flex;flex-direction:column;flex:1">
+            <h3 style="margin:0 0 10px;font-family:'Marcellus',serif;font-weight:400;font-size:24px;color:#16323a">Apartment 3</h3>
+            <p style="margin:0 0 22px;font-size:15px;line-height:1.65;color:rgba(22,50,58,0.78);flex:1">A peaceful retreat with everything you need for a relaxing holiday, moments from the water.</p>
+            <a href="https://www.airbnb.no/rooms/1390231233709113623" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--primary);color:#fff;font-weight:700;font-size:14px;letter-spacing:0.02em;padding:14px 22px;border-radius:999px;text-decoration:none" style-hover="background:var(--primary-h)">Book on Airbnb &nbsp;&rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPLORE ===== -->
+  <section id="explore" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,64px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="max-width:680px;margin-bottom:clamp(40px,5vw,64px)">
+        <p style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--primary)">Explore</p>
+        <h2 style="margin:0 0 20px;font-family:'Marcellus',serif;font-weight:400;color:#16323a;font-size:clamp(2rem,4vw,3.1rem);line-height:1.1">Beautiful beaches, colourful art and great food</h2>
+        <p style="margin:0;font-size:clamp(16px,1.5vw,18px);line-height:1.75;color:rgba(22,50,58,0.82)">Your next Caribbean adventure is just around the corner.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,2.5vw,32px)">
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <image-slot id="explore-beach" shape="rounded" radius="16" placeholder="Beach photo" style="width:100%;height:300px"></image-slot>
+          <div>
+            <h3 style="margin:0 0 8px;font-family:'Marcellus',serif;font-weight:400;font-size:22px;color:#16323a">Beaches</h3>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(22,50,58,0.78)">Jan Thiel and Mambo Beach are minutes away — calm turquoise water, easy snorkelling and laid-back beach clubs.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <image-slot id="explore-food" shape="rounded" radius="16" placeholder="Food &amp; drink photo" style="width:100%;height:300px"></image-slot>
+          <div>
+            <h3 style="margin:0 0 8px;font-family:'Marcellus',serif;font-weight:400;font-size:22px;color:#16323a">Food &amp; drink</h3>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(22,50,58,0.78)">From beachside grills to Willemstad's waterfront restaurants, the island eats and drinks remarkably well.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <image-slot id="explore-art" shape="rounded" radius="16" placeholder="Art &amp; culture photo" style="width:100%;height:300px"></image-slot>
+          <div>
+            <h3 style="margin:0 0 8px;font-family:'Marcellus',serif;font-weight:400;font-size:22px;color:#16323a">Art &amp; culture</h3>
+            <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(22,50,58,0.78)">Wander the colourful streets of Willemstad — a UNESCO-listed capital full of murals and Dutch-Caribbean colour.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section id="location" style="padding:clamp(72px,10vw,128px) clamp(20px,5vw,64px);background:var(--tint)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,56px);align-items:center">
+      <div style="flex:1 1 320px">
+        <p style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--primary)">Location</p>
+        <h2 style="margin:0 0 22px;font-family:'Marcellus',serif;font-weight:400;color:#16323a;font-size:clamp(2rem,4vw,3.1rem);line-height:1.1">Where you'll be</h2>
+        <p style="margin:0 0 24px;font-size:clamp(16px,1.5vw,18px);line-height:1.75;color:rgba(22,50,58,0.82)">Perfectly placed between Jan Thiel and Mambo Beach, in a calm and friendly neighbourhood — and just 30 minutes from Curaçao International Airport.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Jan+Thiel+Curacao" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;font-weight:700;font-size:14px;letter-spacing:0.02em;padding:14px 26px;border-radius:999px;text-decoration:none" style-hover="background:var(--primary-h)">Open in Google Maps &nbsp;&rarr;</a>
+      </div>
+      <div style="flex:1 1 380px;min-width:300px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(22,50,58,0.12);box-shadow:0 18px 40px -28px rgba(22,50,58,0.45)">
+          <iframe title="Map of Jan Thiel, Curaçao" src="https://www.google.com/maps?q=Jan%20Thiel%2C%20Cura%C3%A7ao&z=13&output=embed" style="width:100%;height:clamp(320px,40vw,440px);border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / FOOTER ===== -->
+  <footer id="contact" style="background:var(--footer);color:#fff;padding:clamp(64px,9vw,110px) clamp(20px,5vw,64px) 36px">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);justify-content:space-between">
+        <div style="flex:1 1 320px;max-width:460px">
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:20px">
+            <span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;flex:none"></span>
+            <span style="font-family:'Marcellus',serif;font-size:18px;letter-spacing:0.16em;text-transform:uppercase">Casa&nbsp;Hilltop&nbsp;Breeze</span>
+          </div>
+          <p style="margin:0;font-size:17px;line-height:1.65;color:rgba(255,255,255,0.78);font-family:'Marcellus',serif">A slower, softer side of the Caribbean — waiting for you on the hilltop.</p>
+        </div>
+        <div style="flex:0 1 auto">
+          <p style="margin:0 0 20px;font-size:13px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.55)">Get in touch</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <a href="tel:+59995651242" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-size:17px;font-weight:600" style-hover="color:var(--accent)"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none"></span>+5999 565 1242</a>
+            <a href="mailto:contact@casa-hilltopbreeze.com" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-size:17px;font-weight:600" style-hover="color:var(--accent)"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none"></span>contact@casa-hilltopbreeze.com</a>
+            <a href="https://wa.me/59995651242" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-size:17px;font-weight:600" style-hover="color:var(--accent)"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none"></span>WhatsApp</a>
+            <a href="https://www.instagram.com/hilltopbreeze_curacao" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-size:17px;font-weight:600" style-hover="color:var(--accent)"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none"></span>@hilltopbreeze_curacao</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:clamp(48px,7vw,80px);padding-top:26px;border-top:1px solid rgba(255,255,255,0.14);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+        <span style="font-size:13px;color:rgba(255,255,255,0.5)">© 2026 Casa Hilltop Breeze</span>
+        <span style="font-size:13px;color:rgba(255,255,255,0.5)">Curaçao &middot; Caribbean</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ocean&quot;,&quot;turtle&quot;,&quot;lagoon&quot;,&quot;palm&quot;,&quot;sky&quot;],&quot;default&quot;:&quot;turtle&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { pal: 'turtle' };
+  PALS = {
+    ocean:  { primary: '#1497ac', ph: '#0f7d90', bg: '#f2ede3', nav: 'rgba(242,237,227,0.82)', tint: '#d8edf0', accent: '#c2a06b', hero: 'linear-gradient(150deg,#23b4cb 0%,#0d5562 100%)', footer: 'linear-gradient(160deg,#0e4a57 0%,#08323b 100%)' },
+    turtle: { primary: '#17869b', ph: '#0f6577', bg: '#f6f1e8', nav: 'rgba(246,241,232,0.85)', tint: '#e6f4f2', accent: '#7d634f', hero: 'linear-gradient(150deg,#47faf0 0%,#17869b 100%)', footer: 'linear-gradient(160deg,#125562 0%,#0a3540 100%)' },
+    lagoon: { primary: '#2b95a4', ph: '#1f7885', bg: '#f6f1e8', nav: 'rgba(246,241,232,0.85)', tint: '#e4f4f6', accent: '#7d634f', hero: 'linear-gradient(150deg,#7dc6d5 0%,#1f7885 100%)', footer: 'linear-gradient(160deg,#17636f 0%,#0d3f47 100%)' },
+    palm:   { primary: '#5f7f63', ph: '#4b6650', bg: '#f4efe4', nav: 'rgba(244,239,228,0.85)', tint: '#eaf0e0', accent: '#7d634f', hero: 'linear-gradient(150deg,#b1c68d 0%,#5f7f63 100%)', footer: 'linear-gradient(160deg,#3f5a44 0%,#293c2e 100%)' },
+    sky:    { primary: '#3a68ba', ph: '#2f56a0', bg: '#f6f1e8', nav: 'rgba(246,241,232,0.85)', tint: '#e6eefb', accent: '#7d634f', hero: 'linear-gradient(150deg,#86b9ed 0%,#3a68ba 100%)', footer: 'linear-gradient(160deg,#274a8c 0%,#172c54 100%)' },
+  };
+  applyVars(pal) {
+    const p = this.PALS[pal] || this.PALS.ocean;
+    const el = this.wrapEl;
+    if (!el) return;
+    const map = { '--primary': p.primary, '--primary-h': p.ph, '--bg': p.bg, '--nav-bg': p.nav, '--tint': p.tint, '--accent': p.accent, '--hero': p.hero, '--footer': p.footer };
+    Object.keys(map).forEach((k) => el.style.setProperty(k, map[k]));
+  }
+  componentDidMount() {
+    const init = this.props.palette || 'turtle';
+    if (init !== this.state.pal) this.setState({ pal: init });
+    this.applyVars(init);
+  }
+  componentDidUpdate(prev) {
+    if (prev.palette !== this.props.palette && this.props.palette) {
+      this.setState({ pal: this.props.palette });
+      this.applyVars(this.props.palette);
+    }
+  }
+  choose(pal) {
+    this.setState({ pal: pal });
+    this.applyVars(pal);
+  }
+  renderVals() {
+    const defs = [
+      { key: 'ocean',  label: 'Ocean',  swatch: '#1497ac' },
+      { key: 'turtle', label: 'Turtle', swatch: '#17869b' },
+      { key: 'lagoon', label: 'Lagoon', swatch: '#2b95a4' },
+      { key: 'palm',   label: 'Palm',   swatch: '#5f7f63' },
+      { key: 'sky',    label: 'Sky',    swatch: '#3a68ba' },
+    ];
+    const pal = this.state.pal ?? 'turtle';
+    const setWrapRef = (el) => { this.wrapEl = el; if (el) this.applyVars(this.state.pal ?? 'turtle'); };
+    const palettes = defs.map((d) => {
+      const active = d.key === pal;
+      return {
+        label: d.label,
+        onClick: () => this.choose(d.key),
+        pillStyle: {
+          display: 'inline-flex', alignItems: 'center', gap: '7px', cursor: 'pointer',
+          border: 'none', borderRadius: '999px', padding: '7px 13px 7px 9px',
+          font: 'inherit', fontSize: '12px', fontWeight: 700, letterSpacing: '0.02em',
+          color: active ? '#fff' : '#16323a',
+          background: active ? '#16323a' : 'transparent',
+          transition: 'background 0.15s ease, color 0.15s ease',
+        },
+        dotStyle: {
+          width: '13px', height: '13px', borderRadius: '50%', flex: 'none',
+          background: d.swatch,
+          boxShadow: active ? '0 0 0 2px rgba(255,255,255,0.65)' : 'inset 0 0 0 1px rgba(0,0,0,0.12)',
+        },
+      };
+    });
+    return { pal, palettes, setWrapRef };
+  }
+}
+</script>
+</body>
+</html>

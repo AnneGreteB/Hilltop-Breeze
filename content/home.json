@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "eyebrow": "Curaçao · Caribbean",
+    "title": "Escape to a slower, softer side of the Caribbean",
+    "subtitle": "Affordable luxury in a tropical hideaway — three private apartments, a shared pool and the quiet of the hilltop.",
+    "image": "/images/hero.jpg",
+    "imageAlt": "The pool at Casa Hilltop Breeze surrounded by palm trees"
+  },
+  "about": {
+    "heading": "A quiet villa made for unwinding",
+    "text": "Tucked away in a peaceful setting, the villa is home to three private apartments, a shared pool and the kind of quiet that makes it easy to unwind. We offer thoughtful, beautiful and comfortable stays in tropical surroundings — where guests enjoy privacy, warmth and quality, with easy access to everything needed for a relaxing holiday.",
+    "image": "/images/about.jpg",
+    "imageAlt": "Sun loungers by the shared pool at the villa",
+    "amenities": [
+      "Three private apartments",
+      "Shared swimming pool",
+      "Wi-Fi included",
+      "30 minutes from the airport"
+    ]
+  }
+}
