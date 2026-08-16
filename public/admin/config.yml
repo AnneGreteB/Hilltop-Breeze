@@ -152,7 +152,7 @@ collections:
           - name: mapQuery
             label: Map location
             widget: string
-            hint: The place shown on the map, e.g. "Jan Thiel, Curaçao". An exact address works too.
+            hint: The place shown on the map. Coordinates like "12.1002166,-68.8861538" pin the exact spot; a place name or address works too.
 
       - name: settings
         label: Contact details & site settings
