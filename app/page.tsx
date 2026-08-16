@@ -1,3 +1,4 @@
+import Nav from "./Nav";
 import home from "@/content/home.json";
 import apartmentsContent from "@/content/apartments.json";
 import explore from "@/content/explore.json";
@@ -23,26 +24,7 @@ const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(locatio
 export default function Home() {
   return (
     <>
-      <nav className="nav">
-        <a href="#top" className="wordmark">
-          <span className="wordmark__dot" />
-          <span className="wordmark__text">{settings.siteName}</span>
-        </a>
-        <div className="nav__links">
-          <a href="#apartments" className="nav__link">
-            Apartments
-          </a>
-          <a href="#explore" className="nav__link">
-            Explore
-          </a>
-          <a href="#location" className="nav__link">
-            Location
-          </a>
-          <a href="#contact" className="btn btn--primary nav__cta">
-            Book now
-          </a>
-        </div>
-      </nav>
+      <Nav siteName={settings.siteName} />
 
       <section id="top" className="hero">
         <img
