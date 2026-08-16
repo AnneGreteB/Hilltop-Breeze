@@ -12,6 +12,9 @@
 .DS_Store
 *.pem
 
+# Claude project notes (local only)
+PROJECT_STATE.md
+
 # debug
 npm-debug.log*
 
