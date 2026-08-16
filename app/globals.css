@@ -186,6 +186,15 @@ img {
   display: flex;
   align-items: center;
   gap: clamp(14px, 2.4vw, 30px);
+  /* On narrow screens the links scroll sideways instead of getting cut off */
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav__links::-webkit-scrollbar {
+  display: none;
 }
 
 .nav__link {
@@ -195,12 +204,15 @@ img {
   text-decoration: none;
   color: var(--ink);
   opacity: 0.82;
+  white-space: nowrap;
+  flex: none;
 }
 
 .nav__cta {
   font-size: 14px;
   padding: 10px 20px;
   white-space: nowrap;
+  flex: none;
 }
 
 /* Hero */
