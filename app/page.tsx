@@ -18,8 +18,11 @@ const contactLinks = [
   },
 ];
 
-const mapsLinkUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.mapQuery)}`;
-const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(location.mapQuery)}&z=13&output=embed`;
+// The Google Maps business listing "Hilltop Breeze" (66 Bottelier Kaya A, Willemstad),
+// referenced by its permanent place ID so the map never depends on a text search.
+const mapsLinkUrl = "https://maps.google.com/?cid=16151651559582232465";
+const mapsEmbedUrl =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.7!2d-68.8861538!3d12.1002166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e837dc0d55fb17d%3A0xe0263184b0c86f91!2sHilltop%20Breeze!5e0!3m2!1sen!2s!4v1755350000000";
 
 export default function Home() {
   return (
@@ -153,7 +156,7 @@ export default function Home() {
           <div className="location__map">
             <div className="map-frame">
               <iframe
-                title={`Map of ${location.mapQuery}`}
+                title="Map of Hilltop Breeze"
                 src={mapsEmbedUrl}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
